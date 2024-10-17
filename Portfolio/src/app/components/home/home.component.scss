@@ -128,6 +128,28 @@ section {
     height: auto;
     margin-bottom: 15vh;
 
+    &:nth-of-type(3) {
+      .content {
+        .left {
+          .technologies {
+            img {
+              &:nth-of-type(3) {
+                height: 4vh;
+              }
+            }
+          }
+        }
+
+        .right {
+          overflow: hidden;
+
+          img {
+            width: 120% !important;
+          }
+        }
+      }
+    }
+
     .title {
       display: flex;
       align-items: center;
@@ -160,6 +182,7 @@ section {
         text-decoration: none;
         width: 10%;
         padding-left: 2%;
+        cursor: pointer;
 
         svg {
           margin-top: 1%;
@@ -202,11 +225,11 @@ section {
           margin-top: 5%;
 
           img {
-            position: relative;
             object-fit: fill;
             object-position: center;
             width: fit-content;
             height: 3.5vh;
+            cursor: pointer;
           }
 
           .bar {
@@ -219,6 +242,11 @@ section {
 
           .technology {
             margin-left: 2%;
+            cursor: default;
+
+            &:first-of-type {
+              margin: 0;
+            }
           }
         }
       }
@@ -245,6 +273,9 @@ section {
 }
 
 .projects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: url('/assets/images/glass2.png') 70% / contain no-repeat;
   background-clip: border-box;
   height: auto !important;
