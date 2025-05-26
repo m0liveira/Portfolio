@@ -1,3 +1,5 @@
+<img src="/assets/images/Intro blob.svg" alt="Blob" class="blob">
+
 <section class="intro">
   <h1 class="title"><span>Mateus Oliveira</span> Full-stack Developer</h1>
 
@@ -5,11 +7,12 @@
     <p>From Visual Concepts to Functional Code</p>
 
     <p>Specializing in frontend development with <span>AngularJs</span>. I have a strong passion for creating dynamic
-      and responsive
-      web applications. In addition to my frontend skills, I have experience in backend development using <span>Node.js
-        and C#.</span></p>
+      and responsive web applications. In addition to my frontend skills, I have experience in backend development using
+      <span>Node.js and C#.</span>
+    </p>
 
-    <p>Alongside my development skills, I also have experience in UI design using Figma, which allows me to create
+    <p>Alongside my development skills, I also have experience in UI design using <span>Figma</span>, which allows me to
+      create
       visually appealing and user-friendly interfaces.</p>
   </div>
 
@@ -56,12 +59,16 @@
       </svg>
     </a>
   </div>
-
-  <h1 class="separator">Selected work</h1>
 </section>
+
+<h1 class="separator">Selected work</h1>
 
 <section class="projects">
   <div class="project" *ngFor="let project of projects">
+    <div class="highlight">
+      <div class="light"></div>
+    </div>
+
     <div class="title">
       <img [src]="project.logo" [alt]="project.title + ' logo'">
 
