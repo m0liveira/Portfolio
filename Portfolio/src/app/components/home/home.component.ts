@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from '../shared/footer/footer.component';
+import { NavigationComponent } from "../shared/navigation/navigation.component";
 import { ProjectService } from '../../services/project.service';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule, FooterComponent],
+  imports: [CommonModule, RouterModule, FooterComponent, NavigationComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
