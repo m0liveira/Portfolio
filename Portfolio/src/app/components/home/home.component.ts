@@ -32,19 +32,6 @@ export class HomeComponent {
       githubUrl: ''
     },
     {
-      logo: '/assets/images/Cultured/culturedLogo.png',
-      title: 'Cultured',
-      description: 'A manga and manhwa tracking website designed to help users monitor their reading progress. The platform allows users to easily track chapters, update reading statuses, and manage their library of ongoing series.',
-      descriptionShort: 'With a user-friendly interface and customizable lists, the website ensures an intuitive experience.',
-      technologies: [
-        { icon: '/assets/images/icons/figma.png', name: 'Figma' },
-      ],
-      thumbnail: '/assets/images/Cultured/deviceframesCultured.png',
-      isDesign: true,
-      github: '',
-      githubUrl: ''
-    },
-    {
       logo: '/assets/images/TAB/telephone.png',
       title: 'Telephone Address Book',
       description: 'An address and phone directory website built with Angular, designed to help users store and search for personal or business contact information. The platform allows users to easily manage a comprehensive list of addresses, phone numbers, and other contact details with an intuitive interface.',

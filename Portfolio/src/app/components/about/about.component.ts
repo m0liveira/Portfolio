@@ -14,6 +14,6 @@ export class AboutComponent {
   constructor() { }
 
   ngOnInit(): void {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }
 }

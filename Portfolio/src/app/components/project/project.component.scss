@@ -3,17 +3,15 @@ section {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  background-color: var(--bg-400);
   height: auto;
   padding-top: 5%;
-  background: url('/assets/images/starsBg.png') center / contain space;
 
   .home {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     flex-direction: row-reverse;
-    color: var(--text-100);
+    color: var(--white);
     font-size: var(--fs-425);
     font-weight: 400;
     text-decoration: none;
@@ -164,7 +162,7 @@ section {
             width: 100%;
             height: auto;
             padding: 3% 0;
-            border-bottom: 1px solid var(--bg-200);
+            border-bottom: 2px solid var(--dark-blue);
 
             &:nth-last-of-type(1) {
               span {
