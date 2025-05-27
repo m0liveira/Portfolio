@@ -60,7 +60,11 @@ export class HomeComponent {
     },
   ]
 
-  constructor(public projectService: ProjectService) {  }
+  constructor(public projectService: ProjectService) { }
+
+  ngOnInit(): void {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
 
   openGithub(github: string) {
     github !== '' ? window.open(github, '_blank') : null;
