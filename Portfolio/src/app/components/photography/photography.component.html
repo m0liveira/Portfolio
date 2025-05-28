@@ -91,21 +91,21 @@
 <h1 class="separator">Favourite Photos</h1>
 
 <section class="album">
-  <div class="album-row">
+  <div class="album-column">
     <div class="album-item" *ngFor="let item of leftColumn">
-      <img src="{{item.src}}" alt="Album 1" (click)="openFullView(fullView, item)">
+      <img src="{{item.src}}" alt="{{item.alt}}" (click)="openFullView(fullView, item)">
     </div>
   </div>
 
-  <div class="album-row">
+  <div class="album-column">
     <div class="album-item" *ngFor="let item of centerColumn">
-      <img src="{{item.src}}" alt="Album 1" (click)="openFullView(fullView, item)">
+      <img src="{{item.src}}" alt="{{item.alt}}" (click)="openFullView(fullView, item)">
     </div>
   </div>
 
-  <div class="album-row">
+  <div class="album-column">
     <div class="album-item" *ngFor="let item of rightColumn">
-      <img src="{{item.src}}" alt="Album 1" (click)="openFullView(fullView, item)">
+      <img src="{{item.src}}" alt="{{item.alt}}" (click)="openFullView(fullView, item)">
     </div>
   </div>
 </section>

@@ -7,6 +7,11 @@ export interface Photo {
   date?: string;
 }
 
+export interface GroupedPhotos {
+  date: string;
+  photos: Photo[];
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -272,10 +277,6 @@ export class PhotographyService {
     this.selectedPhoto = photo;
   }
 
-  getUniqueValues<T extends keyof Photo>(photos: Photo[], key: T): NonNullable<Photo[T]>[] {
-    return [...new Set(photos.map(photo => photo[key]).filter(Boolean))] as NonNullable<Photo[T]>[];
-  }
-
   getRandomPhotos(quantity: number, sourceArray: Photo[]): Photo[] {
     let result: Photo[] = [];
     let source = [...sourceArray];
@@ -289,5 +290,27 @@ export class PhotographyService {
     }
 
     return result;
+  }
+
+  getUniqueValues<T extends keyof Photo>(photos: Photo[], key: T): NonNullable<Photo[T]>[] {
+    return [...new Set(photos.map(photo => photo[key]).filter(Boolean))] as NonNullable<Photo[T]>[];
+  }
+
+  groupPhotosByDate(photos: Photo[]): GroupedPhotos[] {
+    let grouped: { [date: string]: Photo[] } = {};
+
+    for (let photo of photos) {
+      if (photo.date) {
+        if (!grouped[photo.date]) {
+          grouped[photo.date] = [];
+        }
+        grouped[photo.date].push(photo);
+      }
+    }
+
+    return Object.entries(grouped).map(([date, photos]) => ({
+      date,
+      photos
+    }));
   }
 }
