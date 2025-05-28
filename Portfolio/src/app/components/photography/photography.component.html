@@ -68,8 +68,9 @@
   <div class="gallery-item">
     <h1>Latest Photos</h1>
 
-    <div class="showcase">
-      <div class="frame {{photo.size}}" *ngFor="let photo of photos">
+    <div class="showcase" [routerLink]="['/Photography/' + 'Latest']"
+      (click)="photographyService.galleryTitle = 'Latest Photos'">
+      <div class="frame {{photo.size}}" *ngFor="let photo of latest">
         <img [src]="photo.src" [alt]="photo.alt">
       </div>
     </div>
@@ -78,8 +79,9 @@
   <div class="gallery-item">
     <h1>Photo Collection</h1>
 
-    <div class="showcase">
-      <div class="frame {{photo.size}}" *ngFor="let photo of photos">
+    <div class="showcase" [routerLink]="['/Photography/' + 'Collection']"
+      (click)="photographyService.galleryTitle = 'Photo Collection'">
+      <div class="frame {{photo.size}}" *ngFor="let photo of collection">
         <img [src]="photo.src" [alt]="photo.alt">
       </div>
     </div>
@@ -90,19 +92,19 @@
 
 <section class="album">
   <div class="album-row">
-    <div class="album-item" *ngFor="let item of row1">
+    <div class="album-item" *ngFor="let item of leftColumn">
       <img src="{{item.src}}" alt="Album 1" (click)="openFullView(fullView, item)">
     </div>
   </div>
 
   <div class="album-row">
-    <div class="album-item" *ngFor="let item of row2">
+    <div class="album-item" *ngFor="let item of centerColumn">
       <img src="{{item.src}}" alt="Album 1" (click)="openFullView(fullView, item)">
     </div>
   </div>
 
   <div class="album-row">
-    <div class="album-item" *ngFor="let item of row3">
+    <div class="album-item" *ngFor="let item of rightColumn">
       <img src="{{item.src}}" alt="Album 1" (click)="openFullView(fullView, item)">
     </div>
   </div>
@@ -127,12 +129,12 @@
   <div class="carousel-wrapper">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" (click)="scrollLeft(carousel)">
       <rect width="256" height="256" fill="none" />
-      <polyline points="160 208 80 128 160 48" fill="none" stroke="currentColor" stroke-linecap="round"
+      <polyline points="160 208 80 128 160 48" fill="none" stroke="var(--white)" stroke-linecap="round"
         stroke-linejoin="round" stroke-width="16" />
     </svg>
 
     <div class="items-carousel" #carousel>
-      <div class="item" *ngFor="let photo of photos">
+      <div class="item" *ngFor="let photo of photographyService.showcase">
         <img [src]="photo.src" [alt]="photo.alt" (click)="photographyService.setSelectedPhoto(photo)">
 
         <div class="selected" *ngIf="photographyService.selectedPhoto?.src === photo.src">
@@ -149,7 +151,7 @@
 
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" (click)="scrollRight(carousel)">
       <rect width="256" height="256" fill="none" />
-      <polyline points="96 48 176 128 96 208" fill="none" stroke="currentColor" stroke-linecap="round"
+      <polyline points="96 48 176 128 96 208" fill="none" stroke="var(--white)" stroke-linecap="round"
         stroke-linejoin="round" stroke-width="16" />
     </svg>
   </div>

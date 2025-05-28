@@ -1,0 +1,42 @@
+.intro-text {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: calc(100vw - (100vw - 100%));
+  height: auto;
+  padding: 11% 10% 0;
+
+  .page-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--grey);
+    font-size: var(--fs-800);
+    font-weight: 300;
+    line-height: 4rem;
+    width: 17%;
+    height: fit-content;
+    cursor: pointer;
+
+    svg {
+      width: 10%;
+      height: fit-content;
+      margin: 0 2% 0 0;
+    }
+  }
+
+  .title {
+    color: var(--white);
+    font-size: var(--fs-1000);
+    font-weight: 300;
+    line-height: 4rem;
+    width: 100%;
+
+    span {
+      color: var(--primary-purple);
+      font-size: var(--fs-1000);
+      font-weight: 400;
+    }
+  }
+}

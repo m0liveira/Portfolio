@@ -1,75 +1,64 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { NavigationComponent } from "../shared/navigation/navigation.component";
 import { FooterComponent } from "../shared/footer/footer.component";
-import { PhotographyService } from '../../services/photography.service';
+import { Photo, PhotographyService } from '../../services/photography.service';
 
 @Component({
   selector: 'app-photography',
   standalone: true,
-  imports: [CommonModule, NavigationComponent, FooterComponent],
+  imports: [CommonModule, RouterModule, NavigationComponent, FooterComponent],
   templateUrl: './photography.component.html',
   styleUrl: './photography.component.scss'
 })
 
-export class PhotographyComponent {
-  photos: { src: string, alt: string, size?: string }[] = [
-    {
-      src: 'https://images.unsplash.com/photo-1531632584752-b8f7bda3799d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      alt: 'Image 1',
-      size: ''
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1529426645011-1457d2e7b052?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      alt: 'Image 1',
-      size: 'frame-xsmall'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1522897048979-e407743f3603?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHN0cmVldCUyMHBob3RvZ3JhcGh5fGVufDB8MHwwfHx8MA%3D%3D',
-      alt: 'Image 1',
-      size: 'frame-small'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1628803184377-c5167a0cb6fd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3RyZWV0JTIwcGhvdG9ncmFwaHl8ZW58MHx8MHx8fDA%3D',
-      alt: 'Image 1',
-      size: 'frame-medium'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1620259570543-31964aa22586?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      alt: 'Image 1',
-      size: 'frame-xsmall'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1651754425516-9b5bdee63a0c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3RyZWV0JTIwcGhvdG9ncmFwaHl8ZW58MHwyfDB8fHww',
-      alt: 'Image 1',
-      size: 'frame-xsmall'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1621844179813-fdb5897058ad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c3RyZWV0JTIwcGhvdG9ncmFwaHl8ZW58MHwyfDB8fHww',
-      alt: 'Image 1',
-      size: 'frame-small'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1507090960745-b32f65d3113a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHN0cmVldCUyMHBob3RvZ3JhcGh5fGVufDB8MHwwfHx8MA%3D%3Dæ',
-      alt: 'Image 1',
-      size: 'frame-xsmall'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1429292394373-ddbcc6bb7468?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3RyZWV0JTIwcGhvdG9ncmFwaHl8ZW58MHwxfDB8fHww',
-      alt: 'Image 1',
-      size: 'frame-medium'
-    },
-  ];
 
-  row1: { src: string, alt: string, size?: string }[] = this.photos.slice(0, 3);
-  row2: { src: string, alt: string, size?: string }[] = this.photos.slice(3, 6);
-  row3: { src: string, alt: string, size?: string }[] = this.photos.slice(6, 9);
+export class PhotographyComponent {
+  sizePool: string[] = ['', 'frame-xsmall', 'frame-small', 'frame-medium', 'frame-xsmall', 'frame-xsmall', 'frame-small', 'frame-xsmall', 'frame-medium'];
+  latest: (Photo & { size?: string })[] = [];
+  collection: (Photo & { size?: string })[] = [];
+
+  leftColumn: Photo[] = [];
+  centerColumn: Photo[] = [];
+  rightColumn: Photo[] = [];
 
   isFullViewOpen = false;
 
   constructor(public photographyService: PhotographyService) { }
 
-  ngOnInit(): void {
+  divideIntoColumns(length: number, columNumber: number): number[] {
+    let base = Math.floor(length / columNumber);
+    let remainder = length % columNumber;
+
+    let columns = [base, base, base];
+
+    for (let i = 0; i < remainder; i++) {
+      columns[i]++;
+    }
+
+    return columns;
+  }
+
+  async ngOnInit(): Promise<void> {
+    let columnSizes = this.divideIntoColumns(this.photographyService.showcase.length, 3);
+
+    this.leftColumn = this.photographyService.showcase.slice(0, columnSizes[0]);
+    this.centerColumn = this.photographyService.showcase.slice(columnSizes[0], columnSizes[0] + columnSizes[1]);
+    this.rightColumn = this.photographyService.showcase.slice(columnSizes[0] + columnSizes[1]);
+
+    this.latest = await this.photographyService.getRandomPhotos(9, this.photographyService.latest);
+    this.collection = this.photographyService.getRandomPhotos(9, this.photographyService.collection);
+
+
+    this.latest.forEach((photo, index) => {
+      photo.size = this.sizePool[index];
+    });
+
+    this.collection.forEach((photo, index) => {
+      photo.size = this.sizePool[index];
+    });
+
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
@@ -121,7 +110,7 @@ export class PhotographyComponent {
     document.addEventListener('touchend', stopDragging);
   }
 
-  openFullView(fullView: HTMLElement, photo: { src: string, alt: string }) {
+  openFullView(fullView: HTMLElement, photo: Photo) {
     this.photographyService.setSelectedPhoto(photo);
     this.isFullViewOpen = true;
 
