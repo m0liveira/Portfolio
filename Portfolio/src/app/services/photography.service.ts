@@ -18,13 +18,13 @@ export interface GroupedPhotos {
 
 export class PhotographyService {
   selectedPhoto: Photo | null = null;
-  galleryTitle: string | null = 'Latest Photos';
+  galleryTitle: string | null = null;
   datesArray: string[] = [];
   citiesArray: string[] = [];
 
   collection: Photo[] = [
     {
-      src: 'https:////live.staticflickr.com/65535/54550668103_539f797b83_b.jpg',
+      src: 'https://live.staticflickr.com/65535/54550668103_539f797b83_b.jpg',
       alt: 'Crane grabbing a flower',
       city: 'Viana do Castelo',
       date: '13/04/2025'
@@ -42,13 +42,13 @@ export class PhotographyService {
       date: '13/04/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550435351_2ba064f906_n.jpg',
+      src: 'https://live.staticflickr.com/65535/54550435351_2ba064f906_b.jpg',
       alt: 'Man on the phone',
       city: 'Porto',
       date: '25/04/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550435341_946708cd65_n.jpg',
+      src: 'https://live.staticflickr.com/65535/54550435341_946708cd65_b.jpg',
       alt: 'Man looking',
       city: 'Porto',
       date: '25/04/2025'
@@ -66,7 +66,7 @@ export class PhotographyService {
       date: '25/04/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54549555612_46207c5197_n.jpg',
+      src: 'https://live.staticflickr.com/65535/54549555612_46207c5197_b.jpg',
       alt: 'Woman portrait',
       city: 'Porto',
       date: '25/04/2025'
@@ -78,13 +78,13 @@ export class PhotographyService {
       date: '25/04/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54549555592_971e19fe56_n.jpg',
+      src: 'https://live.staticflickr.com/65535/54549555592_971e19fe56_b.jpg',
       alt: 'Man with a smoking pipe',
       city: 'Porto',
       date: '25/04/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550435316_9afb801a65_n.jpg',
+      src: 'https://live.staticflickr.com/65535/54550435316_9afb801a65_b.jpg',
       alt: 'Woman with portuguese designed cloth',
       city: 'Porto',
       date: '25/04/2025'
@@ -96,13 +96,13 @@ export class PhotographyService {
       date: '25/04/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550614869_0c9b5fef0f_n.jpg',
+      src: 'https://live.staticflickr.com/65535/54550614869_0c9b5fef0f_b.jpg',
       alt: 'Man portrait',
       city: 'Porto',
       date: '25/04/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550668053_e6a3700aa3_n.jpg',
+      src: 'https://live.staticflickr.com/65535/54550668053_e6a3700aa3_b.jpg',
       alt: 'Man kickbox figther',
       city: 'Gaia',
       date: '17/05/2025'
@@ -114,7 +114,7 @@ export class PhotographyService {
       date: '17/05/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54549555547_c302df82f4_n.jpg',
+      src: 'https://live.staticflickr.com/65535/54549555547_c302df82f4_b.jpg',
       alt: 'Kickbox figther walking in',
       city: 'Gaia',
       date: '17/05/2025'
@@ -147,7 +147,7 @@ export class PhotographyService {
       date: '17/05/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550435216_2890d3412b_n.jpg',
+      src: 'https://live.staticflickr.com/65535/54550435216_2890d3412b_b.jpg',
       alt: 'Porto subway',
       city: 'Porto',
       date: '21/05/2025'
@@ -165,7 +165,7 @@ export class PhotographyService {
       date: '21/05/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550667883_d86b76b986_n.jpg',
+      src: 'https://live.staticflickr.com/65535/54550667883_d86b76b986_b.jpg',
       alt: 'Two sillouetes walking over Douro river',
       city: 'Porto',
       date: '21/05/2025'
@@ -192,7 +192,7 @@ export class PhotographyService {
 
   showcase: Photo[] = [
     {
-      src: 'https:////live.staticflickr.com/65535/54550668103_539f797b83_b.jpg',
+      src: 'https://live.staticflickr.com/65535/54550668103_539f797b83_b.jpg',
       alt: 'Crane grabbing a flower',
       city: 'Viana do Castelo',
       date: '13/04/2025'
@@ -252,7 +252,7 @@ export class PhotographyService {
       date: '21/05/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550614809_cecaba7472_n.jpg',
+      src: 'https://live.staticflickr.com/65535/54550614809_cecaba7472_b.jpg',
       alt: 'Boat framed in Douro river',
       city: 'Porto',
       date: '21/05/2025'

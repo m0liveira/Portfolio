@@ -10,7 +10,7 @@
         stroke-linejoin="round" stroke-width="16" />
     </svg>
 
-    <h2 class="page-indicator" [routerLink]="['/Photography']">{{photoService.galleryTitle}}</h2>
+    <h2 class="page-indicator" [routerLink]="['/Photography']">{{photographyService.galleryTitle}}</h2>
   </div>
 
   <h1 class="title">Find. Save. Share.</h1>
@@ -18,9 +18,29 @@
 </div>
 
 <section class="content">
-  <div class="filters">
+  <div class="filter-col4" *ngIf="columnsNumber == 4">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" (click)="columnsNumber = 3; applyFilters()">
+      <rect width="256" height="256" fill="none" />
+      <circle cx="104" cy="80" r="24" fill="none" stroke="var(--white)" stroke-linecap="round" stroke-linejoin="round"
+        stroke-width="16" />
+      <circle cx="168" cy="176" r="24" fill="none" stroke="var(--white)" stroke-linecap="round" stroke-linejoin="round"
+        stroke-width="16" />
+      <line x1="128" y1="80" x2="216" y2="80" fill="none" stroke="var(--white)" stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="16" />
+      <line x1="40" y1="80" x2="80" y2="80" fill="none" stroke="var(--white)" stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="16" />
+      <line x1="192" y1="176" x2="216" y2="176" fill="none" stroke="var(--white)" stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="16" />
+      <line x1="40" y1="176" x2="144" y2="176" fill="none" stroke="var(--white)" stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="16" />
+    </svg>
+
+    <h2 (click)="columnsNumber = 3; applyFilters()">Hide Filters</h2>
+  </div>
+
+  <div class="filters" *ngIf="columnsNumber == 3">
     <div class="filter-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" (click)="columnsNumber = 4; applyFilters()">
         <rect width="256" height="256" fill="none" />
         <circle cx="104" cy="80" r="24" fill="none" stroke="var(--grey)" stroke-linecap="round" stroke-linejoin="round"
           stroke-width="16" />
@@ -36,11 +56,11 @@
           stroke-linejoin="round" stroke-width="16" />
       </svg>
 
-      <h2>Hide Filters</h2>
+      <h2 (click)="columnsNumber = 4; applyFilters()">Hide Filters</h2>
     </div>
 
     <div class="dropdown">
-      <div class="dropdown-title">
+      <div class="dropdown-title" (click)="expandLocation = !expandLocation">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
           <rect width="256" height="256" fill="none" />
           <circle cx="128" cy="104" r="32" fill="none" stroke="var(--white)" stroke-linecap="round"
@@ -58,19 +78,23 @@
         </svg>
       </div>
 
-      <div class="dropdown-content">
+      <div class="dropdown-content" [ngClass]="{collapse: expandLocation === false}">
         <div class="dropdown-item" *ngFor="let item of citiesArray">
           <div class="checkbox-custom">
-            <input type="checkbox" value="{{item}}" #check>
+            <input #check type="checkbox" class="filter-checkbox" value="{{item}}"
+              [checked]="filteredCities.includes(item)"
+              [disabled]="!availableCities.includes(item) && filteredDates.length > 0"
+              (click)="getFilteredCities(item)">
           </div>
 
-          <h3 (click)="check.checked = !check.checked">{{item}}</h3>
+          <h3 (click)="!check.disabled && (check.checked = !check.checked); !check.disabled && getFilteredCities(item)">
+            {{item}}</h3>
         </div>
       </div>
     </div>
 
     <div class="dropdown">
-      <div class="dropdown-title">
+      <div class="dropdown-title" (click)="expandDate = !expandDate">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
           <rect width="256" height="256" fill="none" />
           <rect x="40" y="40" width="176" height="176" rx="8" fill="none" stroke="var(--white)" stroke-linecap="round"
@@ -97,18 +121,23 @@
         </svg>
       </div>
 
-      <div class="dropdown-content">
+      <div class="dropdown-content" [ngClass]="{collapse: expandDate === false}">
         <div class="dropdown-item" *ngFor="let item of datesArray">
           <div class="checkbox-custom">
-            <input type="checkbox" value="{{item}}" #check>
+            <input #check type="checkbox" class="filter-checkbox" value="{{item}}"
+              [checked]="filteredDates.includes(item)"
+              [disabled]="!availableDates.includes(item) && filteredCities.length > 0" (click)="getFilteredDates(item)">
           </div>
 
-          <h3 (click)="check.checked = !check.checked">{{item}}</h3>
+          <h3 (click)="!check.disabled && (check.checked = !check.checked); !check.disabled && getFilteredDates(item)">
+            {{item}}</h3>
         </div>
       </div>
     </div>
 
-    <div class="filter-btn" *ngIf="filteredCities.length > 0 || filteredDates.length > 0 || filteredPhotos.length > 0">
+    <div class="filter-btn"
+      [ngClass]="{visible: filteredCities.length > 0 || filteredDates.length > 0 || filteredPhotos.length > 0}"
+      (click)="clearFilters()">
       <h2>Clear Filters</h2>
 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
@@ -121,18 +150,83 @@
     </div>
   </div>
 
-  <div class="gallery">
+  <div class="gallery" [ngClass]="{'gallery-col4': columnsNumber == 4}">
     <div class="container" *ngFor="let item of display">
       <h2>{{item.date}}</h2>
 
       <div class="photo-container">
         <div class="album-column" *ngFor="let column of item.photos">
           <div class="album-item" *ngFor="let photo of column">
-            <img [src]="photo.src" [alt]="photo.alt">
+            <img [src]="photo.src" [alt]="photo.alt" (click)="openFullView(fullView, photo)">
           </div>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="full-view hide" #fullView (click)="closeFullView($event, fullView)">
+  <div class="close-container">
+    <h1 class="close-h1">{{photographyService.selectedPhoto?.date}}</h1>
+
+    <div class="download" (click)="downloadImage(photographyService.selectedPhoto?.src)">
+      <h1>Download Photo</h1>
+
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none" />
+        <line x1="128" y1="144" x2="128" y2="32" fill="none" stroke="var(--white)" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="16" />
+        <polyline points="216 144 216 208 40 208 40 144" fill="none" stroke="var(--white)" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="16" />
+        <polyline points="168 104 128 144 88 104" fill="none" stroke="var(--white)" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="16" />
+      </svg>
+    </div>
+
+    <div class="close">
+      <svg class="close-full-view" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+        (click)="closeFullView($event, fullView)">
+        <rect class="close-full-view" width="256" height="256" fill="none" />
+        <line class="close-full-view" x1="200" y1="56" x2="56" y2="200" stroke="var(--white)" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="16" />
+        <line class="close-full-view" x1="200" y1="200" x2="56" y2="56" stroke="var(--white)" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="16" />
+      </svg>
+    </div>
+  </div>
+
+  <div class="full-view-item">
+    <img src="{{photographyService.selectedPhoto?.src}}" alt="{{photographyService.selectedPhoto?.alt}}">
+  </div>
+
+  <div class="carousel-wrapper">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" (click)="scrollLeft(carousel)">
+      <rect width="256" height="256" fill="none" />
+      <polyline points="160 208 80 128 160 48" fill="none" stroke="var(--white)" stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="16" />
+    </svg>
+
+    <div class="items-carousel" #carousel>
+      <div class="item" *ngFor="let photo of filteredPhotos">
+        <img [src]="photo.src" [alt]="photo.alt" (click)="photographyService.setSelectedPhoto(photo)">
+
+        <div class="selected" *ngIf="photographyService.selectedPhoto?.src === photo.src">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+            <rect width="256" height="256" fill="none" />
+            <path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Z" fill="none"
+              stroke="var(--white)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+            <circle cx="128" cy="128" r="40" fill="none" stroke="var(--white)" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="16" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" (click)="scrollRight(carousel)">
+      <rect width="256" height="256" fill="none" />
+      <polyline points="96 48 176 128 96 208" fill="none" stroke="var(--white)" stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="16" />
+    </svg>
   </div>
 </section>
 

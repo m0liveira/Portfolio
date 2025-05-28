@@ -126,7 +126,7 @@ export class PhotographyComponent {
   closeFullView(event: MouseEvent, fullView: HTMLElement) {
     let target = event.target as HTMLElement;
 
-    if (!target.classList.contains('full-view') && !target.classList.contains('close-full-view') && !target.classList.contains('close')) return;
+    if (!target.classList.contains('full-view') && !target.classList.contains('close-full-view') && !target.classList.contains('close') && !target.classList.contains('close-h1') && !target.classList.contains('close-container')) return;
 
     if (fullView) {
       fullView.classList.remove('fadeIn');
@@ -152,5 +152,27 @@ export class PhotographyComponent {
     if (carousel) {
       carousel.scrollBy({ left: 200, behavior: 'smooth' });
     }
+  }
+
+  downloadImage(url: string | undefined) {
+    if (!url) return;
+
+    fetch(url)
+      .then(res => res.blob())
+      .then(blob => {
+        const blobUrl = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = this.getFilename(url);
+        a.click();
+        URL.revokeObjectURL(blobUrl);
+      })
+      .catch(() => {
+        window.open(url, '_blank');
+      });
+  }
+
+  getFilename(url: string): string {
+    return url.split('/').pop()?.split('?')[0] || 'download.jpg';
   }
 }
