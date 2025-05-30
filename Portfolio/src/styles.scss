@@ -12,14 +12,7 @@
 
 // variables
 :root {
-  /* Backgrounds */
-  --bg-200: hsl(217, 41%, 10%);
-  --bg-300: hsl(215, 40%, 6%);
-  --bg-400: hsl(218, 40%, 4%);
-
   /* colors */
-  --primary-400: hsl(259, 72%, 46%);
-
   --primary-purple: hsl(259, 72%, 46%);
   --dark-blue: hsl(217, 25%, 20%);
   --primary-dark: hsl(218, 40%, 4%);
@@ -28,16 +21,6 @@
   --grey: hsl(0, 0%, 64%);
   --light-blue-grey: hsl(210, 16%, 78%);
   --white: hsl(0, 0%, 100%);
-
-
-  /* neutral colors */
-  --neutral-400: hsl(240, 5%, 26%);
-
-  /* text colors */
-  --text-100: hsl(0, 0%, 100%);
-  --text-200: hsl(0, 0%, 86%);
-  --text-300: hsl(0, 1%, 72%);
-  --text-400: hsl(0, 0%, 65%);
 
   /* fonts */
   --font: Pretendard Variable;
@@ -127,4 +110,52 @@ section {
 
 .hide {
   display: none !important;
+}
+
+.purple-gradient {
+  background: conic-gradient(hsl(246, 100%, 62%) 0%, hsl(246, 100%, 62%) 60%, hsl(262, 100%, 57%) 60%, hsl(337, 100%, 57%) 100%);
+}
+
+.red-gradient {
+  background: conic-gradient(hsl(0, 100%, 62%) 0%, hsl(0, 100%, 62%) 60%, hsl(327, 100%, 57%) 60%, hsl(337, 100%, 57%) 100%);
+}
+
+.blue-gradient {
+  background: conic-gradient(hsl(209, 100%, 34%) 0%, hsl(222, 100%, 34%) 60%, hsl(204, 100%, 57%) 60%, hsl(194, 100%, 57%) 100%);
+}
+
+.pink-gradient {
+  background: conic-gradient(hsl(327, 95%, 78%) 0%, hsl(303, 60%, 62%) 60%, hsl(315, 100%, 67%) 60%, hsl(318, 100%, 57%) 100%);
+}
+
+.stretched-purple-gradient {
+  background: conic-gradient(from 0deg,
+      hsla(271.1, 100%, 62%, 0.4) 0%,
+      hsla(258.51, 100%, 62%, 0.4) 48%,
+      hsla(258.51, 100%, 57%, 0.4) 48%,
+      hsla(294.55, 100%, 57%, 0.4) 100%);
+}
+
+.stretched-red-gradient {
+  background: conic-gradient(from 0deg,
+      hsla(0, 100%, 62%, 0.4) 0%,
+      hsla(0, 100%, 62%, 0.4) 48%,
+      hsla(345, 100%, 57%, 0.4) 48%,
+      hsla(318, 100%, 57%, 0.4) 100%);
+}
+
+.stretched-blue-gradient {
+  background: conic-gradient(from 0deg,
+      hsla(209, 100%, 34%, 0.4) 0%,
+      hsla(222, 100%, 34%, 0.4) 48%,
+      hsla(204, 100%, 57%, 0.4) 48%,
+      hsla(194, 100%, 57%, 0.4) 100%);
+}
+
+.stretched-pink-gradient {
+  background: conic-gradient(from 0deg,
+      hsla(288, 87%, 70%, 0.4) 0%,
+      hsla(300, 52%, 70%, 0.4) 48%,
+      hsla(300, 100%, 74%, 0.4) 48%,
+      hsla(298, 97%, 71%, 0.4) 100%);
 }

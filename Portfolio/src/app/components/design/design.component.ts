@@ -13,22 +13,6 @@ import { ProjectService } from '../../services/project.service';
   styleUrl: './design.component.scss'
 })
 export class DesignComponent {
-  projects: any[] = [
-    {
-      logo: '/assets/images/Cultured/culturedLogo.png',
-      title: 'Cultured',
-      description: 'A manga and manhwa tracking website designed to help users monitor their reading progress. The platform allows users to easily track chapters, update reading statuses, and manage their library of ongoing series.',
-      descriptionShort: 'With a user-friendly interface and customizable lists, the website ensures an intuitive experience.',
-      technologies: [
-        { icon: '/assets/images/icons/figma.png', name: 'Figma' },
-      ],
-      thumbnail: '/assets/images/Cultured/deviceframesCultured.png',
-      isDesign: true,
-      github: '',
-      githubUrl: ''
-    }
-  ]
-
   constructor(public projectService: ProjectService) { }
 
   ngOnInit(): void {

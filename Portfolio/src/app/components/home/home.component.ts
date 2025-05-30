@@ -15,38 +15,6 @@ import { ProjectService } from '../../services/project.service';
 })
 
 export class HomeComponent {
-  projects: any[] = [
-    {
-      logo: '/assets/images/KeyHolder/KeyHolderLogo.png',
-      title: 'KeyHolder',
-      description: 'A secure password management app for private use, designed to securely store and manage users credentials, also allowing them to generate passwords, export and import credentials into their account.',
-      descriptionShort: 'The app ensures cross-platform compatibility focusing on user security and convenience.',
-      technologies: [
-        { icon: '/assets/images/icons/ionic.png', name: 'Ionic' },
-        { icon: '/assets/images/icons/angular.png', name: 'Angular' },
-        { icon: '/assets/images/icons/firebase.png', name: 'Firebase' }
-      ],
-      thumbnail: '/assets/images/KeyHolder/deviceframesKeyholder.png',
-      isDesign: false,
-      github: 'This github repository is private.',
-      githubUrl: ''
-    },
-    {
-      logo: '/assets/images/TAB/telephone.png',
-      title: 'Telephone Address Book',
-      description: 'An address and phone directory website built with Angular, designed to help users store and search for personal or business contact information. The platform allows users to easily manage a comprehensive list of addresses, phone numbers, and other contact details with an intuitive interface.',
-      descriptionShort: 'Powered by a C# API, the site ensures fast and reliable data storage and retrieval.',
-      technologies: [
-        { icon: '/assets/images/icons/angular.png', name: 'Angular' },
-        { icon: '/assets/images/icons/cSharp.png', name: 'C#' }
-      ],
-      thumbnail: '/assets/images/TAB/deviceframesPhonebook.png',
-      isDesign: false,
-      github: 'Github',
-      githubUrl: 'https://github.com/m0liveira/telephone-address-book'
-    },
-  ]
-
   constructor(public projectService: ProjectService) { }
 
   ngOnInit(): void {
@@ -55,5 +23,10 @@ export class HomeComponent {
 
   openGithub(github: string) {
     github !== '' ? window.open(github, '_blank') : null;
+  }
+
+  goToProject(project: any) {
+    console.log(project);
+
   }
 }

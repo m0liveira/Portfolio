@@ -9,10 +9,11 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'Home' },
   { path: 'Home', component: HomeComponent },
+  { path: 'Home/Project/:title', component: ProjectComponent },
   { path: 'Design', component: DesignComponent },
+  { path: 'Design/Project/:title', component: ProjectComponent },
   { path: 'Photography', component: PhotographyComponent },
   { path: 'Photography/:gallery', component: GalleryComponent },
   { path: 'About', component: AboutComponent },
-  { path: 'Project/:title', component: ProjectComponent },
   { path: '**', redirectTo: '' },
 ];

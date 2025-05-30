@@ -1,7 +1,9 @@
 <img src="/assets/images/Intro blob.svg" alt="Blob" class="blob">
 
+<app-navigation></app-navigation>
+
 <section class="intro">
-  <a [routerLink]="['/']" class="home" #start>Go Back
+  <a [routerLink]="[returnTo]" class="home" #start>Go Back
     <svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M2 17L10 9.5L2 2" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
@@ -9,26 +11,28 @@
 
   <div class="project">
     <div class="title">
-      <img [src]="projectService.project.logo" [alt]="projectService.project.title + ' logo'">
+      <img [src]="projectService.selectedProject.logo" [alt]="projectService.selectedProject.title + ' logo'">
 
-      <h1>{{projectService.project.title}}</h1>
+      <h1>{{projectService.selectedProject.title}}</h1>
     </div>
 
     <div class="about">
       <div class="left">
-        <p>{{projectService.project.description}}</p>
-        <p>{{projectService.project.descriptionShort}}</p>
+        <p>{{projectService.selectedProject.description}}</p>
+        <p>{{projectService.selectedProject.descriptionShort}}</p>
 
         <div class="technologies">
           <div class="tech">
-            <img src="/assets/images/icons/github.png" alt="Github" [title]="projectService.project.github"
-              *ngIf="!projectService.project.isDesign" (click)="openURL(projectService.project.githubUrl)">
+            <img src="/assets/images/icons/github.png" alt="Github" [title]="projectService.selectedProject.github"
+              *ngIf="!projectService.selectedProject.isDesign"
+              (click)="openURL(projectService.selectedProject.githubUrl)">
 
-            <h1 *ngIf="!projectService.project.isDesign" (click)="openURL(projectService.project.githubUrl)">GitHub</h1>
+            <h1 *ngIf="!projectService.selectedProject.isDesign"
+              (click)="openURL(projectService.selectedProject.githubUrl)">GitHub</h1>
           </div>
 
-          <div class="tech" *ngFor="let technology of projectService.project.technologies">
-            <div class="bar" *ngIf="!projectService.project.isDesign"></div>
+          <div class="tech" *ngFor="let technology of projectService.selectedProject.technologies">
+            <div class="bar" *ngIf="!projectService.selectedProject.isDesign"></div>
 
             <img [src]="technology.icon" [alt]="technology.name" class="technology" [title]="technology.name">
 
@@ -38,47 +42,39 @@
       </div>
 
       <div class="right">
-        <div class="box">
-          <p>Year <span>{{projectService.project.date}}</span></p>
-          <p>Collaborators <span>{{projectService.project.collaborators}}</span></p>
-          <p>Give it a try <span
-              (click)="openURL(projectService.project.webURL)">{{projectService.project.website}}</span></p>
-        </div>
+        <img src="{{projectService.selectedProject.thumbnail}}" alt="">
       </div>
     </div>
 
-    <div class="showcase">
-      <h1>Showcase</h1>
-
-      <div class="image isPhone" *ngIf="projectService.project.hasPhoneDemo">
-        <img src="/assets/images/phoneCase.png" alt="Iphone frame" class="frame" (click)="playVideo(video)">
-        <video #video [src]="keyHolderVideo.src"> </video>
-
-        <div class="player" [ngClass]="{'isPlaying': isPlayingVideo}">
-          <svg width="106" height="106" viewBox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M52.9999 97.1668C77.3925 97.1668 97.1666 77.3927 97.1666 53.0002C97.1666 28.6076 77.3925 8.8335 52.9999 8.8335C28.6073 8.8335 8.83325 28.6076 8.83325 53.0002C8.83325 77.3927 28.6073 97.1668 52.9999 97.1668Z"
-              fill="#06090E" fill-opacity="0.25" stroke="#06090E" stroke-opacity="0.5" stroke-width="6"
-              stroke-linecap="round" stroke-linejoin="round" />
-            <path
-              d="M44.1667 39.0705C44.1667 37.4731 45.947 36.5204 47.2761 37.4064L68.1706 51.3361C69.3581 52.1277 69.3581 53.8726 68.1706 54.6643L47.2761 68.5939C45.947 69.48 44.1667 68.5272 44.1667 66.9298V39.0705Z"
-              stroke="#F1F1F1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </div>
-
-        <p>{{keyHolderVideo.page}}</p>
+    <div class="details">
+      <div class="text">
+        <p>Year</p>
+        <span>{{projectService.selectedProject.date}}</span>
       </div>
-
-      <div class="image" *ngFor="let image of projectService.project.images"
-        [ngClass]="{'isPhone': !this.projectService.project.isLaptop}">
-        <img [src]="image.src" [alt]="image.page" [ngClass]="{'isTablet': image.page === 'Generated PDF'}">
-        <p>{{image.page}}</p>
+      <div class="text">
+        <p>Collaborators</p>
+        <span>{{projectService.selectedProject.collaborators}}</span>
+      </div>
+      <div class="text">
+        <p>Give it a try</p>
+        <span
+          (click)="openURL(projectService.selectedProject.website.url)">{{projectService.selectedProject.website.text}}</span>
       </div>
     </div>
   </div>
-
-  <app-footer></app-footer>
 </section>
+
+<section class="showcase" *ngFor="let item of projectService.selectedProject.showcase">
+  <div class="gradient stretched-{{projectService.selectedProject.color}}"></div>
+
+  <h1>{{item.text}}</h1>
+
+  <div class="image" [ngClass]="{isPc: !projectService.selectedProject.isPhone}">
+    <img [src]="item.src" [alt]="item.text" [ngClass]="{'pocketList': projectService.selectedProject.title == 'PocketList'}">
+  </div>
+</section>
+
+<app-footer></app-footer>
 
 <div class="media">
   <p>Work in progress</p>

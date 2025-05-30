@@ -66,9 +66,9 @@
 <h1 class="separator">Selected work</h1>
 
 <section class="projects">
-  <div class="project" *ngFor="let project of projects">
+  <div class="project" *ngFor="let project of projectService.devProjects">
     <div class="highlight">
-      <div class="light"></div>
+      <div class="light {{project.color}}"></div>
     </div>
 
     <div class="title">
@@ -76,7 +76,8 @@
 
       <h1>{{project.title}}</h1>
 
-      <a [routerLink]="['/Project/' + project.title]" (click)="this.projectService.project = project">See more
+      <a [routerLink]="['/Home', 'Project', project.title]" (click)="projectService.selectedProject = project">See
+        more
         <svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 17L10 9.5L2 2" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
