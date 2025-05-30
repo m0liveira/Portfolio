@@ -1,0 +1,178 @@
+<img src="/assets/images/Intro blob.svg" alt="Blob" class="blob">
+
+<app-navigation></app-navigation>
+
+<section class="intro">
+  <h1 class="title"><span>Mateus Oliveira</span> Street Photographer</h1>
+
+  <div class="about">
+    <p>Capturing the unscripted moments of everyday life</p>
+
+    <p>My street photography is rooted in observation and curiosity. I walk, I watch, and I wait for the light to fall
+      just right, for someone to pass, for a moment that feels meaningful. I look for order in chaos and beauty in the
+      mundane. It’s less about perfection and more about presence.
+    </p>
+
+    <p>I photograph what most people walk past. In the middle of noise and motion, I try to find calm, rhythm, and a
+      quiet sense of humanity.</p>
+  </div>
+
+  <div class="contacts">
+    <a href="mailto:oliviumoncamera@gmail.com" target="_blank">Email me
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M5 5H25C26.375 5 27.5 6.125 27.5 7.5V22.5C27.5 23.875 26.375 25 25 25H5C3.625 25 2.5 23.875 2.5 22.5V7.5C2.5 6.125 3.625 5 5 5Z"
+          stroke="var(--white)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M27.5 7.5L15 16.25L2.5 7.5" stroke="var(--white)" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </a>
+
+    <a href="https://www.instagram.com/oliviumoncamera/" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none" />
+        <circle cx="128" cy="128" r="40" fill="none" stroke="var(--white)" stroke-miterlimit="10" stroke-width="16" />
+        <rect x="32" y="32" width="192" height="192" rx="48" fill="none" stroke="var(--white)" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="16" />
+        <circle cx="180" cy="76" r="12" />
+      </svg>
+    </a>
+
+    <a href="https://www.tiktok.com/@oliviumoncamera" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none" />
+        <path
+          d="M168,102a95.55,95.55,0,0,0,56,18V80a56,56,0,0,1-56-56H128V156a28,28,0,1,1-40-25.31V88c-31.83,5.67-56,34.54-56,68a68,68,0,0,0,136,0Z"
+          fill="none" stroke="var(--white)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+      </svg>
+    </a>
+
+    <a href="https://www.youtube.com/@oliviumoncamera" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none" />
+        <polygon points="160 128 112 96 112 160 160 128" fill="none" stroke="var(--white)" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="16" />
+        <path
+          d="M24,128c0,29.91,3.07,47.45,5.41,56.47A16,16,0,0,0,39,195.42C72.52,208.35,128,208,128,208s55.48.35,89-12.58a16,16,0,0,0,9.63-10.95c2.34-9,5.41-26.56,5.41-56.47s-3.07-47.45-5.41-56.47a16,16,0,0,0-9.63-11C183.48,47.65,128,48,128,48s-55.48-.35-89,12.58a16,16,0,0,0-9.63,11C27.07,80.54,24,98.09,24,128Z"
+          fill="none" stroke="var(--white)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+      </svg>
+    </a>
+  </div>
+</section>
+
+<h1 class="separator">Photo Gallery</h1>
+
+<section class="gallery">
+  <div class="angular-bg"></div>
+
+  <div class="gallery-item">
+    <h1>Latest Photos</h1>
+
+    <div class="showcase" [routerLink]="['/Photography/' + 'Latest']"
+      (click)="photographyService.galleryTitle = 'Latest Photos'">
+      <div class="frame {{photo.size}}" *ngFor="let photo of latest">
+        <img [src]="photo.src" [alt]="photo.alt">
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <h1>Photo Collection</h1>
+
+    <div class="showcase" [routerLink]="['/Photography/' + 'Collection']"
+      (click)="photographyService.galleryTitle = 'Photo Collection'">
+      <div class="frame {{photo.size}}" *ngFor="let photo of collection">
+        <img [src]="photo.src" [alt]="photo.alt">
+      </div>
+    </div>
+  </div>
+</section>
+
+<h1 class="separator">Favourite Photos</h1>
+
+<section class="album">
+  <div class="album-column">
+    <div class="album-item" *ngFor="let item of leftColumn">
+      <img src="{{item.src}}" alt="{{item.alt}}" (click)="openFullView(fullView, item)">
+    </div>
+  </div>
+
+  <div class="album-column">
+    <div class="album-item" *ngFor="let item of centerColumn">
+      <img src="{{item.src}}" alt="{{item.alt}}" (click)="openFullView(fullView, item)">
+    </div>
+  </div>
+
+  <div class="album-column">
+    <div class="album-item" *ngFor="let item of rightColumn">
+      <img src="{{item.src}}" alt="{{item.alt}}" (click)="openFullView(fullView, item)">
+    </div>
+  </div>
+</section>
+
+<section class="full-view hide" #fullView (click)="closeFullView($event, fullView)">
+  <div class="close-container">
+    <h1 class="close-h1">{{photographyService.selectedPhoto?.date}}</h1>
+
+    <div class="download" (click)="downloadImage(photographyService.selectedPhoto?.src)">
+      <h1>Download Photo</h1>
+
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none" />
+        <line x1="128" y1="144" x2="128" y2="32" fill="none" stroke="var(--white)" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="16" />
+        <polyline points="216 144 216 208 40 208 40 144" fill="none" stroke="var(--white)" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="16" />
+        <polyline points="168 104 128 144 88 104" fill="none" stroke="var(--white)" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="16" />
+      </svg>
+    </div>
+
+    <div class="close">
+      <svg class="close-full-view" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+        (click)="closeFullView($event, fullView)">
+        <rect class="close-full-view" width="256" height="256" fill="none" />
+        <line class="close-full-view" x1="200" y1="56" x2="56" y2="200" stroke="var(--white)" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="16" />
+        <line class="close-full-view" x1="200" y1="200" x2="56" y2="56" stroke="var(--white)" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="16" />
+      </svg>
+    </div>
+  </div>
+
+  <div class="full-view-item">
+    <img src="{{photographyService.selectedPhoto?.src}}" alt="{{photographyService.selectedPhoto?.alt}}">
+  </div>
+
+  <div class="carousel-wrapper">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" (click)="scrollLeft(carousel)">
+      <rect width="256" height="256" fill="none" />
+      <polyline points="160 208 80 128 160 48" fill="none" stroke="var(--white)" stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="16" />
+    </svg>
+
+    <div class="items-carousel" #carousel>
+      <div class="item" *ngFor="let photo of photographyService.showcase">
+        <img [src]="photo.src" [alt]="photo.alt" (click)="photographyService.setSelectedPhoto(photo)">
+
+        <div class="selected" *ngIf="photographyService.selectedPhoto?.src === photo.src">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+            <rect width="256" height="256" fill="none" />
+            <path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Z" fill="none"
+              stroke="var(--white)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+            <circle cx="128" cy="128" r="40" fill="none" stroke="var(--white)" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="16" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" (click)="scrollRight(carousel)">
+      <rect width="256" height="256" fill="none" />
+      <polyline points="96 48 176 128 96 208" fill="none" stroke="var(--white)" stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="16" />
+    </svg>
+  </div>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,38 @@
+nav {
+  position: fixed;
+  top: 7%;
+  left: 50%;
+  transform: translate(-50%, -7%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: hsla(218, 40%, 4%, 0.5);
+  border: 2px solid hsla(0, 0%, 100%, 0.23);
+  border-radius: var(--radius-full);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  width: 30%;
+  height: 7%;
+  padding: 0 3%;
+  z-index: 3;
+
+  a {
+    color: var(--light-blue-grey);
+    font-size: var(--fs-400);
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 250ms ease-in-out;
+
+    &:hover {
+      color: var(--white);
+      opacity: 0.8;
+    }
+  }
+}
+
+.active {
+  color: var(--white) !important;
+  font-size: var(--fs-415) !important;
+  font-weight: 400 !important;
+  opacity: 1 !important;
+}

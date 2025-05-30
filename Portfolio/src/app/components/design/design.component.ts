@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FooterComponent } from '../shared/footer/footer.component';
 import { NavigationComponent } from "../shared/navigation/navigation.component";
+import { FooterComponent } from "../shared/footer/footer.component";
 import { ProjectService } from '../../services/project.service';
 
-
 @Component({
-  selector: 'app-home',
+  selector: 'app-design',
   standalone: true,
-  imports: [CommonModule, RouterModule, FooterComponent, NavigationComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  imports: [CommonModule, RouterModule, NavigationComponent, FooterComponent],
+  templateUrl: './design.component.html',
+  styleUrl: './design.component.scss'
 })
-
-export class HomeComponent {
+export class DesignComponent {
   constructor(public projectService: ProjectService) { }
 
   ngOnInit(): void {
@@ -23,10 +21,5 @@ export class HomeComponent {
 
   openGithub(github: string) {
     github !== '' ? window.open(github, '_blank') : null;
-  }
-
-  goToProject(project: any) {
-    console.log(project);
-
   }
 }
