@@ -8,10 +8,21 @@
 @font-face {
   font-family: 'Herr Von Muellerhoff';
   src: url(/assets/fonts/HerrVonMuellerhoff-Regular.ttf) format('truetype');
+  font-family: 'Herr Von Muellerhoff';
+  src: url(/assets/fonts/HerrVonMuellerhoff-Regular.ttf) format('truetype');
 }
 
 // variables
 :root {
+  /* colors */
+  --primary-purple: hsl(259, 72%, 46%);
+  --dark-blue: hsl(217, 25%, 20%);
+  --primary-dark: hsl(218, 40%, 4%);
+  --secondary-dark: hsl(217, 41%, 10%);
+  --dark-grey: hsl(240, 5%, 26%);
+  --grey: hsl(0, 0%, 64%);
+  --light-blue-grey: hsl(210, 16%, 78%);
+  --white: hsl(0, 0%, 100%);
   /* colors */
   --primary-purple: hsl(259, 72%, 46%);
   --dark-blue: hsl(217, 25%, 20%);
@@ -29,8 +40,10 @@
   --fs-300: 0.875rem; // 14px
   --fs-400: 1rem; // 16px
   --fs-415: 1.125rem; // 18px
+  --fs-415: 1.125rem; // 18px
   --fs-425: 1.25rem; // 20px
   --fs-450: 1.375rem; // 22px
+  --fs-500: 1.5rem; // 24px
   --fs-500: 1.5rem; // 24px
   --fs-600: 1.875rem; // 30px
   --fs-700: 2rem; // 32px
@@ -51,6 +64,7 @@
   left: 0;
   box-sizing: border-box;
   color: var(--white);
+  color: var(--white);
   font-family: var(--font);
   font-size: var(--fs-400);
   font-weight: 400;
@@ -60,6 +74,7 @@
 }
 
 body {
+  background-color: var(--primary-dark);
   background-color: var(--primary-dark);
 }
 

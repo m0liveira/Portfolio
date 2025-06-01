@@ -17,12 +17,14 @@ section {
     flex-direction: row;
     flex-wrap: wrap;
     color: var(--primary-purple);
+    color: var(--primary-purple);
     font-size: var(--fs-1000);
     font-weight: 500;
     line-height: 4rem;
     width: 100%;
 
     span {
+      color: var(--white);
       color: var(--white);
       font-size: var(--fs-900);
       font-weight: 500;
@@ -69,12 +71,16 @@ section {
     flex-direction: column;
     width: 73%;
     height: 35%;
+    width: 73%;
+    height: 35%;
     margin-top: 5%;
     padding: 0 20% 0 0;
 
     p {
       color: var(--white);
+      color: var(--white);
       font-size: var(--fs-500);
+      font-weight: 400;
       font-weight: 400;
 
       +p {
@@ -136,6 +142,7 @@ section {
       align-items: center;
       justify-content: space-evenly;
       background-color: var(--secondary-dark);
+      background-color: var(--secondary-dark);
       border-radius: var(--radius-full);
       color: var(--white);
       font-size: var(--fs-415);
@@ -145,6 +152,8 @@ section {
       height: 70%;
 
       &:nth-of-type(1) {
+        background-color: var(--primary-purple);
+        box-shadow: 0 4px 60px rgba(86, 33, 202, 0.35);
         background-color: var(--primary-purple);
         box-shadow: 0 4px 60px rgba(86, 33, 202, 0.35);
         width: 40%;
@@ -244,6 +253,7 @@ section {
 
       h1 {
         color: var(--white);
+        color: var(--white);
         font-size: var(--fs-500);
         font-weight: 500;
         width: 80%;
@@ -254,7 +264,9 @@ section {
         align-items: center;
         justify-content: space-between;
         color: var(--white);
+        color: var(--white);
         font-size: var(--fs-425);
+        font-weight: 300;
         font-weight: 300;
         text-decoration: none;
         width: 10%;
@@ -282,7 +294,10 @@ section {
 
         p {
           color: var(--grey);
+          color: var(--grey);
           font-size: var(--fs-425);
+          font-weight: 300;
+          line-height: 150%;
           font-weight: 300;
           line-height: 150%;
 
@@ -311,6 +326,7 @@ section {
           }
 
           .bar {
+            background-color: var(--dark-blue);
             background-color: var(--dark-blue);
             border-radius: var(--radius-full);
             width: 2px;

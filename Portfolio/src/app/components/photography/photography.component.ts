@@ -50,7 +50,7 @@ export class PhotographyComponent {
 
       this.latest = this.photographyService.getRandomPhotos(1, this.photographyService.latest);
       this.collection = this.photographyService.getRandomPhotos(1, this.photographyService.collection);
-      
+
     } else {
       let columnSizes = this.divideIntoColumns(this.photographyService.showcase.length, 3);
 

@@ -5,12 +5,14 @@ section {
   flex-direction: column;
   height: auto;
   padding-top: 11%;
+  padding-top: 11%;
 
   .home {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     flex-direction: row-reverse;
+    color: var(--white);
     color: var(--white);
     font-size: var(--fs-425);
     font-weight: 400;
@@ -51,6 +53,7 @@ section {
 
       h1 {
         color: var(--white);
+        color: var(--white);
         font-size: var(--fs-500);
         font-weight: 500;
         width: 80%;
@@ -73,7 +76,10 @@ section {
 
         p {
           color: var(--grey);
+          color: var(--grey);
           font-size: var(--fs-425);
+          font-weight: 300;
+          line-height: 150%;
           font-weight: 300;
           line-height: 150%;
           width: 85%;
@@ -114,6 +120,7 @@ section {
 
             .bar {
               background-color: var(--secondary-dark);
+              background-color: var(--secondary-dark);
               border-radius: var(--radius-full);
               width: 2px;
               height: 3.5vh;
@@ -130,6 +137,7 @@ section {
 
             h1 {
               color: var(--white);
+              color: var(--white);
               font-size: var(--fs-400);
               font-weight: 400;
               margin-right: 1vw;
@@ -139,6 +147,7 @@ section {
       }
 
       .right {
+        position: relative;
         position: relative;
         display: flex;
         align-items: center;
