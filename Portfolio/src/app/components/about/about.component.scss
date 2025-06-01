@@ -11,7 +11,7 @@ section {
     justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
-    color: var(--primary-purple);
+    color: var(--grey);
     font-size: var(--fs-900);
     font-weight: 400;
     line-height: 4rem;
@@ -31,6 +31,24 @@ section {
 
       span {
         font-size: var(--fs-600);
+      }
+    }
+
+    @media (width < 600px) {
+      font-size: var(--fs-450);
+      line-height: 2.5rem;
+
+      span {
+        font-size: var(--fs-500);
+      }
+    }
+
+    @media (width < 400px) {
+      font-size: var(--fs-415);
+      line-height: 2rem;
+
+      span {
+        font-size: var(--fs-425);
       }
     }
   }
@@ -62,6 +80,59 @@ section {
       p {
         font-size: var(--fs-400);
       }
+    }
+
+    @media (width < 600px) {
+      width: 100%;
+      margin-top: 15%;
+
+      p {
+        font-size: var(--fs-400);
+        font-weight: 400;
+        margin: 0 0 6% 0;
+
+        @media (width < 400px) {
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  @media (width < 600px) {
+    position: relative;
+    height: auto;
+    margin-bottom: 15vh;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: -20%;
+      background: conic-gradient(hsl(246, 100%, 62%) 0%, hsl(246, 100%, 62%) 60%, hsl(262, 100%, 57%) 60%, hsl(337, 100%, 57%) 100%);
+      -webkit-filter: blur(120px);
+      -moz-filter: blur(120px);
+      -o-filter: blur(120px);
+      -ms-filter: blur(120px);
+      filter: blur(100px);
+      width: 200px;
+      height: 200px;
+      z-index: -1;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 70%;
+      left: 75%;
+      background: conic-gradient(hsl(246, 100%, 62%) 0%, hsl(246, 100%, 62%) 60%, hsl(262, 100%, 57%) 60%, hsl(337, 100%, 57%) 100%);
+      -webkit-filter: blur(120px);
+      -moz-filter: blur(120px);
+      -o-filter: blur(120px);
+      -ms-filter: blur(120px);
+      filter: blur(100px);
+      width: 200px;
+      height: 200px;
+      z-index: -1;
     }
   }
 }

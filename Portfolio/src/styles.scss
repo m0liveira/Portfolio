@@ -97,6 +97,16 @@ section {
     font-size: var(--fs-415);
     margin: 3% auto 0 auto;
   }
+
+  @media (width < 600px) {
+    font-size: var(--fs-400);
+    margin: 10% auto 0 auto;
+
+    &::after {
+      width: 60%;
+      left: 40%;
+    }
+  }
 }
 
 .blob {
@@ -111,6 +121,10 @@ section {
   user-select: none;
   -webkit-touch-callout: none;
   pointer-events: none;
+
+  @media (width < 600px) {
+    display: none;
+  }
 }
 
 .hide {

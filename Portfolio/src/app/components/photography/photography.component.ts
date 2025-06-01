@@ -41,23 +41,35 @@ export class PhotographyComponent {
   }
 
   async ngOnInit(): Promise<void> {
-    let columnSizes = this.divideIntoColumns(this.photographyService.showcase.length, 3);
+    let mediaQuery = window.matchMedia('(max-width: 600px)');
 
-    this.leftColumn = this.photographyService.showcase.slice(0, columnSizes[0]);
-    this.centerColumn = this.photographyService.showcase.slice(columnSizes[0], columnSizes[0] + columnSizes[1]);
-    this.rightColumn = this.photographyService.showcase.slice(columnSizes[0] + columnSizes[1]);
+    if (mediaQuery.matches) {
+      let columnSizes = this.divideIntoColumns(this.photographyService.showcase.length, 1);
 
-    this.latest = await this.photographyService.getRandomPhotos(9, this.photographyService.latest);
-    this.collection = this.photographyService.getRandomPhotos(9, this.photographyService.collection);
+      this.leftColumn = this.photographyService.showcase.slice(0, columnSizes[0]);
+
+      this.latest = this.photographyService.getRandomPhotos(1, this.photographyService.latest);
+      this.collection = this.photographyService.getRandomPhotos(1, this.photographyService.collection);
+      
+    } else {
+      let columnSizes = this.divideIntoColumns(this.photographyService.showcase.length, 3);
+
+      this.leftColumn = this.photographyService.showcase.slice(0, columnSizes[0]);
+      this.centerColumn = this.photographyService.showcase.slice(columnSizes[0], columnSizes[0] + columnSizes[1]);
+      this.rightColumn = this.photographyService.showcase.slice(columnSizes[0] + columnSizes[1]);
+
+      this.latest = this.photographyService.getRandomPhotos(9, this.photographyService.latest);
+      this.collection = this.photographyService.getRandomPhotos(9, this.photographyService.collection);
 
 
-    this.latest.forEach((photo, index) => {
-      photo.size = this.sizePool[index];
-    });
+      this.latest.forEach((photo, index) => {
+        photo.size = this.sizePool[index];
+      });
 
-    this.collection.forEach((photo, index) => {
-      photo.size = this.sizePool[index];
-    });
+      this.collection.forEach((photo, index) => {
+        photo.size = this.sizePool[index];
+      });
+    }
 
     window.scrollTo({ top: 0, behavior: 'instant' });
   }

@@ -36,6 +36,11 @@
       @media (width < 1500px) {
         font-size: var(--fs-500);
       }
+
+      @media (width < 600px) {
+        font-size: var(--fs-400);
+        line-height: 3rem;
+      }
     }
   }
 
@@ -58,6 +63,15 @@
 
       span {
         font-size: var(--fs-800);
+      }
+    }
+
+    @media (width < 600px) {
+      font-size: var(--fs-500);
+      line-height: 2rem;
+
+      span {
+        font-size: var(--fs-500);
       }
     }
   }
@@ -135,15 +149,14 @@ section {
       }
 
       &:nth-last-of-type(1) {
+        display: none;
         justify-content: space-between;
         border: none;
         border-top: 1px solid var(--dark-blue);
         width: 100%;
         padding: 10% 10% 0 0;
-        opacity: 0;
         cursor: pointer;
         pointer-events: none;
-        transition: opacity 150ms ease-in-out;
 
         svg {
           width: 13%;
@@ -326,7 +339,6 @@ section {
     height: auto;
     padding-top: 7%;
 
-
     .container {
       display: flex;
       align-items: flex-start;
@@ -394,6 +406,103 @@ section {
       }
     }
   }
+
+  @media (width < 600px) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    .filter-col4 {
+      margin-bottom: 7%;
+
+      svg {
+        width: 7%;
+      }
+
+      h2 {
+        font-size: var(--fs-400);
+        padding: 0 0 0 3%;
+      }
+    }
+
+    .filters {
+      position: unset;
+      justify-content: space-between;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      padding-top: 10%;
+
+      .filter-btn {
+        padding: 0 0 3% 0;
+        margin: 0 0 5% 0;
+
+        svg {
+          width: 7%;
+        }
+
+        h2 {
+          font-size: var(--fs-400);
+          padding: 0 0 0 3%;
+        }
+
+        &:nth-last-of-type(1) {
+          padding: 4% 3% 0 0;
+          margin: 0;
+
+          svg {
+            width: 8%;
+          }
+
+          h2 {
+            font-size: var(--fs-400);
+          }
+        }
+      }
+
+      .dropdown {
+        width: calc(100% / 2 - 5%);
+
+        .dropdown-title{
+          margin-bottom: 8%;
+        }
+
+        .dropdown-content{
+          align-items: flex-start;
+
+          .dropdown-item{
+            width: 100%;
+
+            h3{
+              font-size: var(--fs-300);
+            }
+          }
+        }
+      }
+    }
+
+    .gallery {
+      width: 100%;
+
+      .container {
+        h2 {
+          font-size: var(--fs-400);
+          width: 45%;
+          padding: 0 0 0.75rem 0;
+        }
+
+        .photo-container {
+          align-items: center;
+          flex-direction: column;
+
+          .album-column {
+            width: 100%;
+            gap: 2rem;
+            margin-bottom: 2rem;
+          }
+        }
+      }
+    }
+  }
 }
 
 .gallery-col4 {
@@ -403,11 +512,19 @@ section {
   .container {
     h2 {
       width: 12% !important;
+
+      @media (width < 600px) {
+        width: 45% !important;
+      }
     }
 
     .photo-container {
       .album-column {
         width: calc(100% / 4 - 1.25rem) !important;
+
+        @media (width < 600px) {
+          width: 100% !important;
+        }
       }
     }
   }
@@ -422,7 +539,7 @@ section {
 }
 
 .visible {
-  opacity: 1 !important;
+  display: flex !important;
   pointer-events: all !important;
 }
 
@@ -615,6 +732,72 @@ section {
             width: fit-content;
             height: 40%;
           }
+        }
+      }
+    }
+  }
+
+  @media (width < 600px) {
+    width: 100%;
+    height: 100%;
+
+    .close-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: auto;
+
+      h1 {
+        font-size: var(--fs-300);
+        order: 1;
+        height: auto;
+      }
+
+      .download {
+        flex-direction: row-reverse;
+        flex-basis: 100%;
+        height: auto;
+        order: 3;
+        margin: 5% 0 0 0;
+
+        h1 {
+          font-size: var(--fs-400);
+        }
+
+        svg {
+          height: 3vh;
+        }
+      }
+
+      .close {
+        order: 2;
+        height: auto;
+
+        svg {
+          height: 3.5vh;
+        }
+      }
+    }
+
+    .full-view-item {
+      height: 60%;
+    }
+
+    .carousel-wrapper {
+      width: 100%;
+      height: 25%;
+
+      svg {
+        &:not(.selected svg) {
+          display: none;
+        }
+      }
+
+      .items-carousel {
+        align-items: center;
+        justify-content: flex-start;
+
+        .item {
+          height: 45%;
         }
       }
     }

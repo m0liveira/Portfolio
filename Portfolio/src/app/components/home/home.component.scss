@@ -5,6 +5,11 @@ section {
   flex-direction: column;
   padding-top: 11%;
 
+  @media (width < 600px) {
+    height: auto;
+    min-height: 25vh;
+  }
+
   .title {
     display: flex;
     align-items: flex-start;
@@ -31,6 +36,28 @@ section {
 
       span {
         font-size: var(--fs-700);
+      }
+    }
+
+    @media (width < 600px) {
+      font-size: var(--fs-600);
+      line-height: 2.5rem;
+      margin: 0;
+
+      span {
+        font-size: var(--fs-425);
+        font-weight: 400;
+      }
+    }
+
+    @media (width < 400px) {
+      font-size: var(--fs-500);
+      line-height: 2.25rem;
+      margin: 0;
+
+      span {
+        font-size: var(--fs-415);
+        font-weight: 300;
       }
     }
   }
@@ -90,6 +117,10 @@ section {
         }
       }
     }
+
+    @media (width < 600px) {
+      display: none;
+    }
   }
 
   .contacts {
@@ -134,6 +165,29 @@ section {
     @media (width < 1500px) {
       width: 35%;
       margin-top: 7%;
+    }
+
+    @media (width < 600px) {
+      flex-direction: row-reverse;
+      width: 100%;
+      height: 7.5vh;
+      margin-top: 10%;
+
+      a {
+        font-size: var(--fs-400);
+
+        @media (width < 400px) {
+          font-size: var(--fs-300);
+        }
+      }
+
+      svg {
+        scale: 0.9;
+
+        @media (width < 400px) {
+          scale: 1;
+        }
+      }
     }
   }
 
@@ -329,6 +383,119 @@ section {
         }
       }
     }
+
+    @media (width < 600px) {
+      justify-content: flex-end;
+      background: hsla(217, 41%, 10%, 0.25);
+      border: 1px solid hsla(0, 0%, 100%, 0.06);
+      border-radius: 1.5rem;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      height: 45vh;
+      padding: 7%;
+      margin-bottom: 10vh;
+
+      &:nth-last-of-type(1) {
+        margin-bottom: 15vh;
+      }
+
+      .highlight {
+        top: unset;
+        right: unset;
+        bottom: 0;
+        left: -10%;
+        transform: translate(10%, 0);
+        width: auto;
+        height: auto;
+
+        .light {
+          -webkit-filter: blur(120px);
+          -moz-filter: blur(120px);
+          -o-filter: blur(120px);
+          -ms-filter: blur(120px);
+          filter: blur(120px);
+          width: 200px;
+          height: 200px;
+        }
+      }
+
+      .title {
+        height: auto;
+        margin-bottom: 3%;
+
+        img {
+          display: none;
+        }
+
+        h1 {
+          font-size: var(--fs-600);
+          font-weight: 500;
+
+          @media (width < 400px) {
+            font-size: var(--fs-500);
+          }
+        }
+
+        a {
+          position: absolute;
+          top: 0;
+          left: 0;
+          border-radius: 1.5rem;
+          width: 100%;
+          height: 100%;
+          color: transparent;
+          opacity: 0;
+          z-index: 5;
+
+          svg {
+            display: none;
+          }
+        }
+      }
+
+      .content {
+        .left {
+          width: 100%;
+          margin-top: 0;
+
+          p {
+            display: none;
+          }
+
+          .technologies {
+            margin-top: 0;
+
+            img {
+              height: 3.25vh;
+
+              &:nth-of-type(1) {
+                filter: brightness(0);
+              }
+            }
+
+            .bar {
+              display: none;
+            }
+
+            .technology {
+              margin-left: 5%;
+            }
+          }
+        }
+
+        .right {
+          position: absolute;
+          align-items: flex-start;
+          width: 100%;
+          height: 100%;
+
+          img {
+            width: 65%;
+            margin-top: 10%;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -342,6 +509,11 @@ section {
 
   @media (width < 1500px) {
     min-height: 75vh;
+  }
+
+  @media (width < 600px) {
+    justify-content: flex-start;
+    min-height: auto;
   }
 }
 

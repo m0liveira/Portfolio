@@ -32,6 +32,30 @@ nav {
       font-size: var(--fs-300);
     }
   }
+
+  @media (width < 600px) {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--secondary-dark);
+    border-radius: 0;
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+    width: 80%;
+    height: auto;
+    padding: 15% 0 6% 0;
+
+    a {
+      font-size: var(--fs-400);
+
+      @media (width < 400px) {
+        font-size: var(--fs-300);
+      }
+    }
+  }
 }
 
 .active {
@@ -42,5 +66,13 @@ nav {
 
   @media (width < 1500px) {
     font-size: var(--fs-400) !important;
+  }
+
+  @media (width < 600px) {
+    font-size: var(--fs-425) !important;
+  }
+
+  @media (width < 400px) {
+    font-size: var(--fs-415) !important;
   }
 }
