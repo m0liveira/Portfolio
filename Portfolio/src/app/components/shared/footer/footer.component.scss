@@ -23,6 +23,8 @@ footer {
     font-size: var(--fs-200);
     font-weight: 300;
     margin: 1.5% 0 0 0;
+    font-weight: 300;
+    margin: 1.5% 0 0 0;
   }
 
   h1 {
@@ -37,6 +39,14 @@ footer {
     text-align: center;
     width: 40%;
     line-height: 140%;
+
+    @media (width < 600px) {
+      width: 60%;
+    }
+  }
+
+  @media (width < 600px) {
+    width: 80vw;
   }
 }
 

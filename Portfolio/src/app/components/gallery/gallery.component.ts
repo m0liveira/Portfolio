@@ -186,8 +186,6 @@ export class GalleryComponent {
     this.filteredPhotos = filteredPhotos;
 
     this.display = this.photosToDisplay(filteredPhotos);
-
-    console.log(this.filteredPhotos);
   }
 
   disableScroll() {
