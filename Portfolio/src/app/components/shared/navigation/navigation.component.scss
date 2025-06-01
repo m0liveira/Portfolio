@@ -27,6 +27,10 @@ nav {
       color: var(--white);
       opacity: 0.8;
     }
+
+    @media (width < 1500px) {
+      font-size: var(--fs-300);
+    }
   }
 }
 
@@ -35,4 +39,8 @@ nav {
   font-size: var(--fs-415) !important;
   font-weight: 400 !important;
   opacity: 1 !important;
+
+  @media (width < 1500px) {
+    font-size: var(--fs-400) !important;
+  }
 }

@@ -23,6 +23,16 @@ section {
       font-weight: 500;
       width: 100%;
     }
+
+    @media (width < 1500px) {
+      font-size: var(--fs-900);
+      line-height: 3rem;
+      margin: 2% 0 0 0;
+
+      span {
+        font-size: var(--fs-700);
+      }
+    }
   }
 
   .about {
@@ -45,6 +55,29 @@ section {
         font-size: var(--fs-425);
         font-weight: 300;
         line-height: 150%;
+      }
+    }
+
+    @media (width < 1500px) {
+      width: 80%;
+      height: 30%;
+      padding: 0 12% 0 0;
+      margin-top: 7%;
+
+      p {
+        font-size: var(--fs-425);
+
+        +p {
+          font-size: var(--fs-400);
+
+          +p {
+            padding: 0 5% 0 0;
+          }
+
+          span {
+            font-size: var(--fs-400);
+          }
+        }
       }
     }
   }
@@ -86,6 +119,11 @@ section {
         width: 55%;
         height: fit-content;
       }
+    }
+
+    @media (width < 1500px) {
+      width: 35%;
+      margin-top: 7%;
     }
   }
 }
@@ -162,6 +200,10 @@ section {
         width: 35%;
         padding: 8px;
         overflow: hidden;
+
+        @media (width < 1500px) {
+          width: 40%;
+        }
 
         img {
           display: block;

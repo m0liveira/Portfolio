@@ -23,6 +23,16 @@ section {
       font-weight: 400;
       width: 100%;
     }
+
+    @media (width < 1500px) {
+      font-size: var(--fs-600);
+      line-height: 3rem;
+      margin: 2% 0 0 0;
+
+      span {
+        font-size: var(--fs-600);
+      }
+    }
   }
 
   .about {
@@ -43,6 +53,14 @@ section {
 
       &:last-child {
         margin: 0;
+      }
+    }
+
+    @media (width < 1500px) {
+      width: 60%;
+
+      p {
+        font-size: var(--fs-400);
       }
     }
   }

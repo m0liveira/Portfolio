@@ -92,6 +92,11 @@ section {
     width: 85%;
     height: 1px;
   }
+
+  @media (width < 1500px) {
+    font-size: var(--fs-415);
+    margin: 3% auto 0 auto;
+  }
 }
 
 .blob {
