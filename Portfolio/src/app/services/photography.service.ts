@@ -24,22 +24,46 @@ export class PhotographyService {
 
   collection: Photo[] = [
     {
-      src: 'https://live.staticflickr.com/65535/54550668103_539f797b83_b.jpg',
-      alt: 'Crane grabbing a flower',
-      city: 'Viana do Castelo',
-      date: '13/04/2025'
+      src: 'https://live.staticflickr.com/65535/54549555512_32e439e92f_h.jpg',
+      alt: 'Kickbox figthers',
+      city: 'Gaia',
+      date: '17/05/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550668108_2140c36d1f_b.jpg',
-      alt: 'Man walking under a water arch',
-      city: 'Viana do Castelo',
-      date: '13/04/2025'
+      src: 'https://live.staticflickr.com/65535/54549555522_a85f6ba606_h.jpg',
+      alt: 'Kickbox figth winner',
+      city: 'Gaia',
+      date: '17/05/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550614929_49d4444bdb_h.jpg',
-      alt: 'Bird covering the sun',
-      city: 'Viana do Castelo',
-      date: '13/04/2025'
+      src: 'https://live.staticflickr.com/65535/54550668053_e6a3700aa3_b.jpg',
+      alt: 'Man kickbox figther',
+      city: 'Gaia',
+      date: '17/05/2025'
+    },
+    {
+      src: 'https://live.staticflickr.com/65535/54550668043_01a64784cf_b.jpg',
+      alt: 'Man on the ropes',
+      city: 'Gaia',
+      date: '17/05/2025'
+    },
+    {
+      src: 'https://live.staticflickr.com/65535/54549555547_c302df82f4_b.jpg',
+      alt: 'Kickbox figther walking in',
+      city: 'Gaia',
+      date: '17/05/2025'
+    },
+    {
+      src: 'https://live.staticflickr.com/65535/54550614854_c265e7597c_b.jpg',
+      alt: 'Kickbox figther punching',
+      city: 'Gaia',
+      date: '17/05/2025'
+    },
+    {
+      src: 'https://live.staticflickr.com/65535/54550774855_507d3d3509_h.jpg',
+      alt: 'Kickbox figther stance',
+      city: 'Gaia',
+      date: '17/05/2025'
     },
     {
       src: 'https://live.staticflickr.com/65535/54550435351_2ba064f906_b.jpg',
@@ -101,50 +125,69 @@ export class PhotographyService {
       city: 'Porto',
       date: '25/04/2025'
     },
+
     {
-      src: 'https://live.staticflickr.com/65535/54550668053_e6a3700aa3_b.jpg',
-      alt: 'Man kickbox figther',
-      city: 'Gaia',
-      date: '17/05/2025'
+      src: 'https://live.staticflickr.com/65535/54550668103_539f797b83_b.jpg',
+      alt: 'Crane grabbing a flower',
+      city: 'Viana do Castelo',
+      date: '13/04/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550668043_01a64784cf_b.jpg',
-      alt: 'Man on the ropes',
-      city: 'Gaia',
-      date: '17/05/2025'
+      src: 'https://live.staticflickr.com/65535/54550668108_2140c36d1f_b.jpg',
+      alt: 'Man walking under a water arch',
+      city: 'Viana do Castelo',
+      date: '13/04/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54549555547_c302df82f4_b.jpg',
-      alt: 'Kickbox figther walking in',
-      city: 'Gaia',
-      date: '17/05/2025'
-    },
-    {
-      src: 'https://live.staticflickr.com/65535/54550614854_c265e7597c_b.jpg',
-      alt: 'Kickbox figther punching',
-      city: 'Gaia',
-      date: '17/05/2025'
-    },
-    {
-      src: 'https://live.staticflickr.com/65535/54550774855_507d3d3509_h.jpg',
-      alt: 'Kickbox figther stance',
-      city: 'Gaia',
-      date: '17/05/2025'
+      src: 'https://live.staticflickr.com/65535/54550614929_49d4444bdb_h.jpg',
+      alt: 'Bird covering the sun',
+      city: 'Viana do Castelo',
+      date: '13/04/2025'
     },
   ];
 
   latest: Photo[] = [
     {
-      src: 'https://live.staticflickr.com/65535/54549555512_32e439e92f_h.jpg',
-      alt: 'Kickbox figthers',
-      city: 'Gaia',
-      date: '17/05/2025'
+      src: 'https://live.staticflickr.com/65535/54582581713_3c44801f05_b.jpg',
+      alt: 'Man sitting',
+      city: 'Porto',
+      date: '21/05/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54549555522_a85f6ba606_h.jpg',
-      alt: 'Kickbox figth winner',
-      city: 'Gaia',
-      date: '17/05/2025'
+      src: 'https://live.staticflickr.com/65535/54581496397_77511a5b70_b.jpg',
+      alt: 'Man walking',
+      city: 'Porto',
+      date: '21/05/2025'
+    },
+    {
+      src: 'https://live.staticflickr.com/65535/54582367591_90ee1f4396_b.jpg',
+      alt: 'Woman with umbrella',
+      city: 'Porto',
+      date: '21/05/2025'
+    },
+    {
+      src: 'https://live.staticflickr.com/65535/54582544514_8dac1c698b_b.jpg',
+      alt: 'Woman drinking a pinaple',
+      city: 'Porto',
+      date: '21/05/2025'
+    },
+    {
+      src: 'https://live.staticflickr.com/65535/54582544599_1a840dd43a_b.jpg',
+      alt: 'Man playing guitar',
+      city: 'Porto',
+      date: '21/05/2025'
+    },
+    {
+      src: 'https://live.staticflickr.com/65535/54582581853_e919b59e14_b.jpg',
+      alt: 'Woman with flowers',
+      city: 'Porto',
+      date: '21/05/2025'
+    },
+    {
+      src: 'https://live.staticflickr.com/65535/54581496502_1c019d9949_b.jpg',
+      alt: 'Woman in white dress',
+      city: 'Porto',
+      date: '21/05/2025'
     },
     {
       src: 'https://live.staticflickr.com/65535/54550435216_2890d3412b_b.jpg',
@@ -192,34 +235,40 @@ export class PhotographyService {
 
   showcase: Photo[] = [
     {
-      src: 'https://live.staticflickr.com/65535/54550668103_539f797b83_b.jpg',
-      alt: 'Crane grabbing a flower',
-      city: 'Viana do Castelo',
-      date: '13/04/2025'
-    },
-    {
-      src: 'https://live.staticflickr.com/65535/54550614929_49d4444bdb_h.jpg',
-      alt: 'Bird covering the sun',
-      city: 'Viana do Castelo',
-      date: '13/04/2025'
-    },
-    {
-      src: 'https://live.staticflickr.com/65535/54549555627_2e7e5d4c1a_b.jpg',
-      alt: 'Man holding a carnation',
+      src: 'https://live.staticflickr.com/65535/54582581713_3c44801f05_b.jpg',
+      alt: 'Man sitting',
       city: 'Porto',
-      date: '25/04/2025'
+      date: '21/05/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550774890_283bce90c5_b.jpg',
-      alt: 'Woman holding a carnation',
+      src: 'https://live.staticflickr.com/65535/54582367591_90ee1f4396_b.jpg',
+      alt: 'Woman with umbrella',
       city: 'Porto',
-      date: '25/04/2025'
+      date: '21/05/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550614879_e4c6a9889e_b.jpg',
-      alt: 'Man with a carnation in the mouth',
+      src: 'https://live.staticflickr.com/65535/54549555462_79099c4a80_b.jpg',
+      alt: 'Two sillouetes standing',
       city: 'Porto',
-      date: '25/04/2025'
+      date: '21/05/2025'
+    },
+    {
+      src: 'https://live.staticflickr.com/65535/54550614809_cecaba7472_b.jpg',
+      alt: 'Boat framed in Douro river',
+      city: 'Porto',
+      date: '21/05/2025'
+    },
+    {
+      src: 'https://live.staticflickr.com/65535/54550614794_c068db15fd_b.jpg',
+      alt: 'Porto subway',
+      city: 'Porto',
+      date: '21/05/2025'
+    },
+    {
+      src: 'https://live.staticflickr.com/65535/54550667898_bbc88205f3_b.jpg',
+      alt: 'Douro river & city',
+      city: 'Porto',
+      date: '21/05/2025'
     },
     {
       src: 'https://live.staticflickr.com/65535/54550668043_01a64784cf_b.jpg',
@@ -246,28 +295,34 @@ export class PhotographyService {
       date: '17/05/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54549555462_79099c4a80_b.jpg',
-      alt: 'Two sillouetes standing',
+      src: 'https://live.staticflickr.com/65535/54549555627_2e7e5d4c1a_b.jpg',
+      alt: 'Man holding a carnation',
       city: 'Porto',
-      date: '21/05/2025'
+      date: '25/04/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550614809_cecaba7472_b.jpg',
-      alt: 'Boat framed in Douro river',
+      src: 'https://live.staticflickr.com/65535/54550774890_283bce90c5_b.jpg',
+      alt: 'Woman holding a carnation',
       city: 'Porto',
-      date: '21/05/2025'
+      date: '25/04/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550614794_c068db15fd_b.jpg',
-      alt: 'Porto subway',
+      src: 'https://live.staticflickr.com/65535/54550614879_e4c6a9889e_b.jpg',
+      alt: 'Man with a carnation in the mouth',
       city: 'Porto',
-      date: '21/05/2025'
+      date: '25/04/2025'
     },
     {
-      src: 'https://live.staticflickr.com/65535/54550667898_bbc88205f3_b.jpg',
-      alt: 'Douro river & city',
-      city: 'Porto',
-      date: '21/05/2025'
+      src: 'https://live.staticflickr.com/65535/54550668103_539f797b83_b.jpg',
+      alt: 'Crane grabbing a flower',
+      city: 'Viana do Castelo',
+      date: '13/04/2025'
+    },
+    {
+      src: 'https://live.staticflickr.com/65535/54550614929_49d4444bdb_h.jpg',
+      alt: 'Bird covering the sun',
+      city: 'Viana do Castelo',
+      date: '13/04/2025'
     },
   ];
 
