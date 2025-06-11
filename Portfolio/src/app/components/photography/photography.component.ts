@@ -156,13 +156,13 @@ export class PhotographyComponent {
 
   scrollLeft(carousel: HTMLElement) {
     if (carousel) {
-      carousel.scrollBy({ left: -200, behavior: 'smooth' });
+      carousel.scrollBy({ left: -400, behavior: 'smooth' });
     }
   }
 
   scrollRight(carousel: HTMLElement) {
     if (carousel) {
-      carousel.scrollBy({ left: 200, behavior: 'smooth' });
+      carousel.scrollBy({ left: 400, behavior: 'smooth' });
     }
   }
 
