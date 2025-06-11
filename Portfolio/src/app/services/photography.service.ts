@@ -172,6 +172,12 @@ export class PhotographyService {
       date: '21/05/2025'
     },
     {
+      src: 'https://live.staticflickr.com/65535/54582619704_ba37e0005e_b.jpg',
+      alt: 'People framed in a bycicle wheel',
+      city: 'Porto',
+      date: '21/05/2025'
+    },
+    {
       src: 'https://live.staticflickr.com/65535/54582544599_1a840dd43a_b.jpg',
       alt: 'Man playing guitar',
       city: 'Porto',

@@ -102,6 +102,7 @@ section {
     position: relative;
     height: auto;
     margin-bottom: 15vh;
+    overflow-x: clip;
 
     &::before {
       content: '';
